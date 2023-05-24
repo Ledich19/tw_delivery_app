@@ -1,8 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ShopType } from '../app/types';
+import { CartItemType, GoodsType, ShopType } from '../app/types';
 
 type InitialState = {
   shops: ShopType[];
+  cart: CartItemType[];
+  activeShop: string;
+};
+type Action = {
+  payload: string;
+  type: string;
 };
 
 const initialState: InitialState = {
@@ -158,15 +164,29 @@ const initialState: InitialState = {
       ],
     },
   ],
+  cart: [],
+  activeShop: '',
 };
 
 const storeSlice = createSlice({
   name: 'notify',
   initialState,
   reducers: {
-    setStore(state, action) {},
+    addProduct(state, action: Action) {
+      const isProduct = state.cart.find((product) => action.payload === product.id);
+      if (isProduct) {
+        const newCart = state.cart.map((product) => {
+          if (isProduct.id === product.id) {
+            return { ...product, amount: product.amount + 1 };
+          }
+          return product;
+        });
+        return { ...state, cart: newCart };
+      }
+      return { ...state, cart: state.cart.concat({ id: action.payload, amount: 1 }) };
+    },
   },
 });
 
-export const { setStore } = storeSlice.actions;
+export const { addProduct } = storeSlice.actions;
 export default storeSlice.reducer;

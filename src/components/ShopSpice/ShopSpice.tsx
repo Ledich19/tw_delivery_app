@@ -15,8 +15,8 @@ const ShopSpice = () => {
 
   return (
     <div className={s.shopSpice}>
-      {goods.map((good) => (
-        <Product key={good.id} good={good} />
+      {goods.map((product) => (
+        <Product key={product.id} product={product} />
       ))}
     </div>
   );

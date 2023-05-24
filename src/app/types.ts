@@ -8,3 +8,7 @@ export type ShopType = {
   name: string;
   goods: GoodsType[];
 };
+export type CartItemType = {
+  id: string;
+  amount: number;
+};

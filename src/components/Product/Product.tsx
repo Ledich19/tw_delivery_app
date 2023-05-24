@@ -1,14 +1,24 @@
 import s from './Product.module.scss';
 import { GoodsType } from '../../app/types';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { addProduct } from '../../reducers/storeReducer';
 
-const Product = ({ good }: { good: GoodsType }) => {
+const Product = ({ product }: { product: GoodsType }) => {
+  const dispatch = useAppDispatch();
+  const cart = useAppSelector((store) => store.store.cart);
+
+  const addToCardHandler = () => {
+    dispatch(addProduct(product.id));
+    console.log(cart);
+  };
+
   return (
     <div className={s.product}>
       <div className={s.image}>
-        <img src={good.photo} alt={good.name} />
+        <img src={product.photo} alt={product.name} />
       </div>
-      <div className={s.name}>{good.name}</div>
-      <button type="button" className={s.button}>
+      <div className={s.name}>{product.name}</div>
+      <button onClick={addToCardHandler} type="button" className={s.button}>
         add to card
       </button>
     </div>
