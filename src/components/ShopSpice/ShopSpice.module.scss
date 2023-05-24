@@ -3,4 +3,7 @@ $footerBgColor: #c8c8c8;
 .shopSpice {
   flex: 1 1 auto;
   background-color: $footerBgColor;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-gap: 10px;
 }

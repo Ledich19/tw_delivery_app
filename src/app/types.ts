@@ -6,5 +6,5 @@ export type GoodsType = {
 export type ShopType = {
   id: string;
   name: string;
-  goods: GoodsType | [];
+  goods: GoodsType[];
 };
