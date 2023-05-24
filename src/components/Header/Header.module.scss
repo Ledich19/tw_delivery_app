@@ -7,8 +7,24 @@ $headerBgColor: #ffffff;
   box-sizing: border-box;
   background-color: $headerBgColor;
 }
+.navigation{}
+
 .list{
   display: flex;
+  align-items: center;
   height: 50px;
+  list-style: none;
   margin: 0;
+  padding: 0;
+}
+
+.item{
+  line-height: 1rem;
+  padding: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+  color: black;
+  a{
+    color: blue;
+  }
 }

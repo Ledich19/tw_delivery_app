@@ -1,4 +1,3 @@
-import React from 'react';
 import s from './Product.module.scss';
 import { GoodsType } from '../../app/types';
 
