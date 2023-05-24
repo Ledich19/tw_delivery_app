@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { CartItemType, GoodsType, ShopType } from '../app/types';
+import { CartItemType, ShopType } from '../app/types';
 
 type InitialState = {
   shops: ShopType[];

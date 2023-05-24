@@ -1,15 +1,13 @@
 import s from './Product.module.scss';
 import { GoodsType } from '../../app/types';
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { useAppDispatch } from '../../app/hooks';
 import { addProduct } from '../../reducers/storeReducer';
 
 const Product = ({ product }: { product: GoodsType }) => {
   const dispatch = useAppDispatch();
-  const cart = useAppSelector((store) => store.store.cart);
 
   const addToCardHandler = () => {
     dispatch(addProduct(product.id));
-    console.log(cart);
   };
 
   return (
