@@ -1,7 +1,43 @@
 $footerBgColor: #ffffff;
+$hoverBgColor: #eae8e8;
+$borderColor: #000000;
+$textColor: #000000;
 
 .product {
-  background-color: $footerBgColor;
+  padding: 10px;
+  display: flex;
+  font-size: 1rem;
+  flex-direction: column;
+  background-color: #ffffff;
   border-radius: 5px;
-  height: 300px;
+  height: 200px;
+  justify-content: space-between;
+  align-items: flex-end;
+  box-sizing: border-box;
+}
+.image {
+  height: 70%;
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+}
+.name {
+  width: 205px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.button {
+  cursor: pointer;
+  font-size: 1rem;
+  border: 1px solid $borderColor;
+  background: $footerBgColor;
+  color: $textColor;
+  padding: 5px;
+  border-radius: 5px;
+  &:hover {
+    background: $hoverBgColor;
+  }
 }

@@ -43,7 +43,7 @@ const initialState: InitialState = {
       goods: [
         {
           id: '12',
-          name: 'name1',
+          name: 'name1fffffffff fdghg hgjhghj g jhjk',
           photo:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_bMcXquKCV2p3r5Vyc2OWtvvRE8AZMq8rA&usqp=CAU',
         },
