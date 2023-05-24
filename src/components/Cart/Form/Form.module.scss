@@ -1,0 +1,12 @@
+$footerBgColor: #ffffff;
+
+.footer {
+  position: relative;
+  display: flex;
+  height: 70px;
+  font-size: 1rem;
+  width: 100%;
+  background-color: $footerBgColor;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+}
