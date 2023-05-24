@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import { Outlet } from 'react-router-dom';
 import s from './Shop.module.scss';
+import Shops from '../../components/Shops/Shops';
 
 const Shop = () => {
   return (
     <div className={s.shop}>
-      <div> Shop</div>
+      <Shops />
+      <Outlet />
     </div>
   );
 };

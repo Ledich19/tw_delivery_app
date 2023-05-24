@@ -12,7 +12,12 @@ const HeaderNavigation: React.FC = () => {
           </NavLink>
         </li>
         <li className={s.header__item}>
-          <NavLink to="/editor" className={(info) => (info.isActive ? s.activeLink : s.navLink)}>
+          <NavLink to="/shop" className={(info) => (info.isActive ? s.activeLink : s.navLink)}>
+            shop
+          </NavLink>
+        </li>
+        <li className={s.header__item}>
+          <NavLink to="/cart" className={(info) => (info.isActive ? s.activeLink : s.navLink)}>
             cart
           </NavLink>
         </li>
