@@ -2,6 +2,9 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 
   color-scheme: light dark;
   color: rgba(0, 0, 0, 0.87);
@@ -23,6 +26,7 @@ body {
   font-size: 14px;
   background-image: url(./assets/bg/brett-ritchie-1vKTnwLMdqs-unsplash.jpg);
 }
+
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -50,7 +54,8 @@ $md4: 479.98;
   width: 100%;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  height: 100vh;
+  gap: 10px;
   max-width: $maxWidhtConteiner + px;
   margin: 0 auto;
   @media (max-width: #{$md1}px) {

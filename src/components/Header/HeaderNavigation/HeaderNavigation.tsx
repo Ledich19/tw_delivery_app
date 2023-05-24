@@ -4,19 +4,19 @@ import s from '../Header.module.scss';
 
 const HeaderNavigation: React.FC = () => {
   return (
-    <nav className={s.header__navigation}>
-      <ul className={s.header__list}>
-        <li className={s.header__item}>
+    <nav className={s.navigation}>
+      <ul className={s.list}>
+        <li className={s.item}>
           <NavLink to="/" className={(info) => (info.isActive ? s.activeLink : s.navLink)}>
             home
           </NavLink>
         </li>
-        <li className={s.header__item}>
+        <li className={s.item}>
           <NavLink to="/shop" className={(info) => (info.isActive ? s.activeLink : s.navLink)}>
             shop
           </NavLink>
         </li>
-        <li className={s.header__item}>
+        <li className={s.item}>
           <NavLink to="/cart" className={(info) => (info.isActive ? s.activeLink : s.navLink)}>
             cart
           </NavLink>
