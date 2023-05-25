@@ -4,6 +4,8 @@ import { CartItemType, ProductsType } from '../app/types';
 type InitialState = {
   cart: CartItemType[];
   activeShop: string;
+  isSuccess: boolean;
+  isError: null | string;
 };
 type AddProductAction = {
   payload: ProductsType;
@@ -25,6 +27,8 @@ type RemoveProductFromCartAction = {
 const initialState: InitialState = {
   cart: [],
   activeShop: '',
+  isSuccess: false,
+  isError: null,
 };
 
 const storeSlice = createSlice({
@@ -68,8 +72,33 @@ const storeSlice = createSlice({
         cart: state.cart.filter((product) => product.info.id !== action.payload),
       };
     },
+    cleanCart(state) {
+      return {
+        ...state,
+        cart: [],
+      };
+    },
+    setIsSuccess(state, action) {
+      return {
+        ...state,
+        isSuccess: action.payload,
+      };
+    },
+    setIsError(state, action) {
+      return {
+        ...state,
+        setIsError: action.payload,
+      };
+    },
   },
 });
 
-export const { addProduct, changeAmount, removeProductFromCart } = storeSlice.actions;
+export const {
+  addProduct,
+  changeAmount,
+  removeProductFromCart,
+  cleanCart,
+  setIsSuccess,
+  setIsError,
+} = storeSlice.actions;
 export default storeSlice.reducer;
