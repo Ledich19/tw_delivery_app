@@ -4,6 +4,7 @@ export type GoodsType = {
   photo: string;
   price: number;
 };
+
 export type ShopType = {
   id: string;
   name: string;
