@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { CartItemType, ShopType } from '../app/types';
+import { CartItemType, GoodsType, ShopType } from '../app/types';
 
 type InitialState = {
   shops: ShopType[];
@@ -7,7 +7,7 @@ type InitialState = {
   activeShop: string;
 };
 type Action = {
-  payload: string;
+  payload: GoodsType;
   type: string;
 };
 
@@ -166,23 +166,53 @@ const initialState: InitialState = {
   ],
   cart: [
     {
-      id: '1',
+      info: {
+        name: 'name',
+        photo:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_bMcXquKCV2p3r5Vyc2OWtvvRE8AZMq8rA&usqp=CAU',
+
+        id: '1',
+      },
       amount: 1,
     },
     {
-      id: '22',
+      info: {
+        name: 'name',
+        photo:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_bMcXquKCV2p3r5Vyc2OWtvvRE8AZMq8rA&usqp=CAU',
+
+        id: '22',
+      },
       amount: 5,
     },
     {
-      id: '5',
+      info: {
+        name: 'name',
+        photo:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_bMcXquKCV2p3r5Vyc2OWtvvRE8AZMq8rA&usqp=CAU',
+
+        id: '5',
+      },
       amount: 3,
     },
     {
-      id: '34',
+      info: {
+        name: 'name',
+        photo:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_bMcXquKCV2p3r5Vyc2OWtvvRE8AZMq8rA&usqp=CAU',
+
+        id: '34',
+      },
       amount: 2,
     },
     {
-      id: '44',
+      info: {
+        name: 'name',
+        photo:
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_bMcXquKCV2p3r5Vyc2OWtvvRE8AZMq8rA&usqp=CAU',
+
+        id: '44',
+      },
       amount: 1,
     },
   ],
@@ -194,17 +224,17 @@ const storeSlice = createSlice({
   initialState,
   reducers: {
     addProduct(state, action: Action) {
-      const isProduct = state.cart.find((product) => action.payload === product.id);
+      const isProduct = state.cart.find((product) => action.payload.id === product.info.id);
       if (isProduct) {
         const newCart = state.cart.map((product) => {
-          if (isProduct.id === product.id) {
+          if (isProduct.info.id === product.info.id) {
             return { ...product, amount: product.amount + 1 };
           }
           return product;
         });
         return { ...state, cart: newCart };
       }
-      return { ...state, cart: state.cart.concat({ id: action.payload, amount: 1 }) };
+      return { ...state, cart: state.cart.concat({ info: action.payload, amount: 1 }) };
     },
   },
 });

@@ -9,7 +9,7 @@ export type ShopType = {
   goods: GoodsType[];
 };
 export type CartItemType = {
-  product: string;
+  info: GoodsType;
   amount: number;
 };
 
