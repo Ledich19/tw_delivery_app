@@ -1,6 +1,4 @@
-import { useParams } from 'react-router-dom';
 import s from './ShopSpice.module.scss';
-import { useAppSelector } from '../../app/hooks';
 import { ProductsType } from '../../app/types';
 import Product from '../Product/Product';
 

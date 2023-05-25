@@ -1,4 +1,4 @@
-import { Outlet, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import s from './Shop.module.scss';
 import Shops from '../../components/Shops/Shops';
 import ShopSpice from '../../components/ShopSpice/ShopSpice';
@@ -8,7 +8,7 @@ import { useAppSelector } from '../../app/hooks';
 
 const Shop = () => {
   const { id } = useParams();
-  const { data, error, isLoading } = useGetShopsQuery('');
+  const { data, isLoading } = useGetShopsQuery('');
   const shopInCart = useAppSelector((state) => state.store.cart[0]?.info.shopId || null);
 
   const dataArr = data || [];

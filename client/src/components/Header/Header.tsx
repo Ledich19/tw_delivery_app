@@ -8,11 +8,6 @@ const Header = () => {
         <ul className={s.list}>
           <li className={s.item}>
             <NavLink to="/" className={(info) => (info.isActive ? s.activeLink : s.navLink)}>
-              home
-            </NavLink>
-          </li>
-          <li className={s.item}>
-            <NavLink to="/" className={(info) => (info.isActive ? s.activeLink : s.navLink)}>
               shop
             </NavLink>
           </li>

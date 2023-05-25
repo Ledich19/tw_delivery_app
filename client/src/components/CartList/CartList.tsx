@@ -1,5 +1,4 @@
 import { useAppSelector } from '../../app/hooks';
-import { usePostOrderMutation } from '../../services/shopApi';
 import CartItem from '../CartItem/CartItem';
 import style from './CartList.module.scss';
 

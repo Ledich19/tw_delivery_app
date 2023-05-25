@@ -14,7 +14,7 @@ export const shopApi = createApi({
         method: 'POST',
         body: data,
       }),
-      transformErrorResponse: (response: { status: string | number }, meta, arg) => response.status,
+      transformErrorResponse: (response: { status: string | number }) => response.status,
     }),
   }),
 });
