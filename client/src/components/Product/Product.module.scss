@@ -41,4 +41,7 @@ $textColor: #000000;
   &:hover {
     background: $hoverBgColor;
   }
+  &:active {
+    transform: scale(0.9);
+  }
 }
