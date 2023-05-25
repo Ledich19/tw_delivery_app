@@ -1,1 +1,9 @@
+$border: rgb(0, 0, 0);
 
+.cartList{
+  flex: 1 1 auto;
+border: 1px solid $border;
+border-radius: 5px;
+  width: 50%;
+  padding: 10px;
+}

@@ -1,6 +1,6 @@
 import s from './ShppingCart.module.scss';
+import CartList from '../../components/CartList/CartList';
 import Form from '../../components/Form/Form';
-import GoodsList from '../../components/CartList/CartList';
 import FooterCart from '../../components/CartFooter/CartFooter';
 
 const ShoppingCart = () => {
@@ -8,7 +8,7 @@ const ShoppingCart = () => {
     <div className={s.shoppingCart}>
       <div className={s.main}>
         <Form />
-        <GoodsList />
+        <CartList />
       </div>
       <FooterCart />
     </div>

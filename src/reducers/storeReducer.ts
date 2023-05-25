@@ -164,7 +164,28 @@ const initialState: InitialState = {
       ],
     },
   ],
-  cart: [],
+  cart: [
+    {
+      id: '1',
+      amount: 1,
+    },
+    {
+      id: '22',
+      amount: 5,
+    },
+    {
+      id: '5',
+      amount: 3,
+    },
+    {
+      id: '34',
+      amount: 2,
+    },
+    {
+      id: '44',
+      amount: 1,
+    },
+  ],
   activeShop: '',
 };
 
