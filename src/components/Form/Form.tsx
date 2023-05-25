@@ -1,10 +1,12 @@
+import { useEffect } from 'react';
 import s from './Form.module.scss';
 
 import useInput from '../../hooks/useInput';
-import { useAppSelector } from '../../app/hooks';
+import { useAppDispatch } from '../../app/hooks';
+import { setFormData } from '../../reducers/formReducer';
 
 const Form = () => {
-  const { cart } = useAppSelector((store) => store.store);
+  const dispatch = useAppDispatch();
   const name = useInput('', {
     isEmpty: true,
     minLength: 3,
@@ -31,16 +33,16 @@ const Form = () => {
     minLength: 5,
   });
 
-  const handleSubmit = () => {
-    const order = {
-      name: name.value,
-      email: email.value,
-      phone: phone.value,
-      address: address.value,
-      order: cart,
+  useEffect(() => {
+    const formData = {
+      name: name.value || '',
+      email: email.value || '',
+      phone: phone.value || '',
+      address: address.value || '',
     };
-    console.log(order);
-  };
+    const isValid = !email.isValid || !phone.isValid || !address.isValid;
+    dispatch(setFormData({ formData, isValid }));
+  }, [name, email, phone, address, dispatch]);
 
   return (
     <div className={s.form}>
@@ -95,14 +97,6 @@ const Form = () => {
         onBlur={() => address.onBlur()}
         placeholder="address"
       />
-      <button
-        disabled={!email.isValid || !phone.isValid || !address.isValid}
-        type="button"
-        className={s.button}
-        onClick={handleSubmit}
-      >
-        Submit
-      </button>
     </div>
   );
 };

@@ -13,7 +13,7 @@ const CartItem = ({ product }: Props) => {
   const handleAmount = (e: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(changeAmount({ id: product.info.id, value: parseInt(e.target.value, 10) }));
   };
-  const handleDelete = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleDelete = () => {
     dispatch(removeProductFromCart(product.info.id));
   };
 
@@ -23,9 +23,9 @@ const CartItem = ({ product }: Props) => {
         <img src={product.info.photo} alt={product.info.name} />
       </div>
       <div className={s.info}>
-        <div onClick={handleDelete} className={s.delete}>
+        <button type="button" onClick={handleDelete} className={s.delete}>
           <AiOutlineClose />
-        </div>
+        </button>
         <div className={s.textWrap}>
           <div className={s.text}>
             <div className={s.name}>{product.info.name}</div>

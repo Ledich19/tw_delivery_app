@@ -1,6 +1,32 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { CartItemType, GoodsType, ShopType } from '../app/types';
 
+type InitialState = {
+  shops: ShopType[];
+  cart: CartItemType[];
+  isValid: boolean;
+  activeShop: string;
+};
+type AddProductAction = {
+  payload: GoodsType;
+  type: string;
+};
+
+type ChangeAmountAction = {
+  payload: {
+    id: string;
+    value: number;
+  };
+  type: string;
+};
+type RemoveProductFromCartAction = {
+  payload: string;
+  type: string;
+};
+type ChangeIsValidAction = {
+  payload: boolean;
+  type: string;
+};
 const initialState: InitialState = {
   shops: [
     {
@@ -231,28 +257,8 @@ const initialState: InitialState = {
       amount: 1,
     },
   ],
+  isValid: false,
   activeShop: '',
-};
-type InitialState = {
-  shops: ShopType[];
-  cart: CartItemType[];
-  activeShop: string;
-};
-type AddProductAction = {
-  payload: GoodsType;
-  type: string;
-};
-
-type ChangeAmountAction = {
-  payload: {
-    id: string;
-    value: number;
-  };
-  type: string;
-};
-type RemoveProductFromCartAction = {
-  payload: string;
-  type: string;
 };
 
 const storeSlice = createSlice({
@@ -296,8 +302,15 @@ const storeSlice = createSlice({
         cart: state.cart.filter((product) => product.info.id !== action.payload),
       };
     },
+    changeIsValid(state, action: ChangeIsValidAction) {
+      return {
+        ...state,
+        isValid: action.payload,
+      };
+    },
   },
 });
 
-export const { addProduct, changeAmount, removeProductFromCart } = storeSlice.actions;
+export const { addProduct, changeAmount, removeProductFromCart, changeIsValid } =
+  storeSlice.actions;
 export default storeSlice.reducer;
