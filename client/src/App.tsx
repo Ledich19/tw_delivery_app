@@ -9,11 +9,8 @@ const App = () => {
   return (
     <Routes>
       <Route path="*" element={<Layout />}>
-        <Route index element={<ShoppingCart />} />
-        <Route path="shop" element={<Shop />}>
-          <Route index element={<ShopSpice />} />
-          <Route path=":id" element={<ShopSpice />} />
-        </Route>
+        <Route index element={<Shop />} />
+        <Route path=":id" element={<Shop />} />
         <Route path="cart" element={<ShoppingCart />} />
         <Route path="404" element={<ErrorPage />} />
         <Route path="*" element={<Navigate to="404" />} />

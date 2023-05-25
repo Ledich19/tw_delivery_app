@@ -4,19 +4,19 @@ import { useAppSelector } from '../../app/hooks';
 import { GoodsType } from '../../app/types';
 import Product from '../Product/Product';
 
-const ShopSpice = () => {
-  const { id } = useParams();
-  const { shops } = useAppSelector((store) => store.store);
-  const goods: GoodsType[] =
-    id && shops
-      ? shops.find((shop) => shop.id === id)?.goods ?? []
-      : shops.reduce((goodsArr, shop) => goodsArr.concat(shop.goods), [] as GoodsType[]);
+type Props = {
+  products: GoodsType[];
+  isLoading: boolean;
+};
 
+const ShopSpice = ({ products, isLoading }: Props) => {
   return (
     <div className={s.shopSpice}>
-      {goods.map((product) => (
-        <Product key={product.id} product={product} />
-      ))}
+      {isLoading ? (
+        <div className={s.loading}>...loading</div>
+      ) : (
+        products.map((product) => <Product key={product.id} product={product} />)
+      )}
     </div>
   );
 };

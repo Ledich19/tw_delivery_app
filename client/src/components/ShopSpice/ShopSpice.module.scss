@@ -2,17 +2,23 @@ $footerBgColor: #c8c8c8;
 
 .shopSpice {
   height: 100%;
+  width: 75%;
+  box-sizing:border-box;
   overflow: scroll;
   flex: 1 0 auto;
   padding: 10px;
   background-color: $footerBgColor;
-  // display: flex;
-  // justify-content: center;
-  // align-content: flex-start;
-  // flex-wrap: wrap;
   display: grid;
   grid-template-columns: auto auto auto;
   grid-template-rows: 200px 200px 200px;
   gap: 10px;
   grid-gap: 10px;
+}
+.loading{
+ font-size: 1.9rem;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%,-50%);
+
 }
