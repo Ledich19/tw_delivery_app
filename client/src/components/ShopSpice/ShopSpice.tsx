@@ -1,11 +1,11 @@
 import { useParams } from 'react-router-dom';
 import s from './ShopSpice.module.scss';
 import { useAppSelector } from '../../app/hooks';
-import { GoodsType } from '../../app/types';
+import { ProductsType } from '../../app/types';
 import Product from '../Product/Product';
 
 type Props = {
-  products: GoodsType[];
+  products: ProductsType[];
   isLoading: boolean;
 };
 

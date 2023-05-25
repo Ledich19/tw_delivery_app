@@ -1,4 +1,4 @@
-export type GoodsType = {
+export type ProductsType = {
   id: string;
   name: string;
   photo: string;
@@ -8,10 +8,10 @@ export type GoodsType = {
 export type ShopType = {
   id: string;
   name: string;
-  goods: GoodsType[];
+  products: ProductsType[];
 };
 export type CartItemType = {
-  info: GoodsType;
+  info: ProductsType;
   amount: number;
 };
 export type FormType = {

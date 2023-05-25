@@ -24,8 +24,8 @@ const Form = () => {
     isEmpty: true,
     minLength: 8,
     reGex: {
-      value: /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/,
-      text: `номер в формате 999-999-9999`,
+      value: /^\+\d{12}$/,
+      text: `номер в формате +999999999999`,
     },
   });
   const address = useInput('', {

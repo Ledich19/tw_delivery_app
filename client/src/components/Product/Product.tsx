@@ -1,9 +1,9 @@
 import s from './Product.module.scss';
-import { GoodsType } from '../../app/types';
+import { ProductsType } from '../../app/types';
 import { useAppDispatch } from '../../app/hooks';
 import { addProduct } from '../../reducers/storeReducer';
 
-const Product = ({ product }: { product: GoodsType }) => {
+const Product = ({ product }: { product: ProductsType }) => {
   const dispatch = useAppDispatch();
 
   const addToCardHandler = () => {

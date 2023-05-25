@@ -1,5 +1,5 @@
 import { fetchBaseQuery, createApi } from '@reduxjs/toolkit/query/react';
-import { ShopType } from '../app/types';
+import { OrderType, ShopType } from '../app/types';
 
 export const shopApi = createApi({
   reducerPath: 'shopApi',
@@ -8,10 +8,15 @@ export const shopApi = createApi({
     getShops: build.query<ShopType[], string>({
       query: () => '/shops',
     }),
-    getShopsById: build.query({
-      query: (id) => `/${id}}`,
+    postOrder: build.mutation<OrderType, Partial<OrderType>>({
+      query: (data) => ({
+        url: `/cart`,
+        method: 'POST',
+        body: data,
+      }),
+      transformErrorResponse: (response: { status: string | number }, meta, arg) => response.status,
     }),
   }),
 });
 
-export const { useGetShopsQuery, useGetShopsByIdQuery } = shopApi;
+export const { useGetShopsQuery, usePostOrderMutation } = shopApi;

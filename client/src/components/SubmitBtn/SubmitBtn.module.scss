@@ -1,13 +1,18 @@
 $Bg: #ffffff;
 $border: #000000;
+$disColor: #bebebe;
 $text: #000000;
 
 .button {
-  color: $text;
   padding: 10px;
+  color: $text;
   background: $Bg;
   font-weight: bold;
   border: 1px solid $border;
   border-radius: 5px;
   cursor: pointer;
+  &:disabled{
+    color: $disColor;
+    border: 1px solid $disColor;
+  }
 }
