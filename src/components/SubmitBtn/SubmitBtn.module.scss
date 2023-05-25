@@ -1,12 +1,13 @@
-$footerBgColor: #ffffff;
+$Bg: #ffffff;
+$border: #000000;
+$text: #000000;
 
-.footer {
-  position: relative;
-  display: flex;
-  height: 70px;
-  font-size: 1rem;
-  width: 100%;
-  background-color: $footerBgColor;
-  box-sizing: border-box;
-  flex: 0 0 auto;
+.button {
+  color: $text;
+  padding: 10px;
+  background: $Bg;
+  font-weight: bold;
+  border: 1px solid $border;
+  border-radius: 5px;
+  cursor: pointer;
 }

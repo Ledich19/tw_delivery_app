@@ -1,12 +1,15 @@
 $footerBgColor: #ffffff;
 
-.footer {
-  position: relative;
+.cartFooter {
+  padding: 10px;
+  gap: 10px;
   display: flex;
   height: 70px;
   font-size: 1rem;
   width: 100%;
-  background-color: $footerBgColor;
+  background-color: #ffffff;
   box-sizing: border-box;
   flex: 0 0 auto;
+  justify-content: flex-end;
+  align-items: center;
 }
