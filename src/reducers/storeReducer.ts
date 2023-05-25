@@ -1,16 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { CartItemType, GoodsType, ShopType } from '../app/types';
 
-type InitialState = {
-  shops: ShopType[];
-  cart: CartItemType[];
-  activeShop: string;
-};
-type Action = {
-  payload: GoodsType;
-  type: string;
-};
-
 const initialState: InitialState = {
   shops: [
     {
@@ -18,24 +8,28 @@ const initialState: InitialState = {
       name: 'MC donny',
       goods: [
         {
+          price: 10,
           id: '1',
           name: 'name',
           photo:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_bMcXquKCV2p3r5Vyc2OWtvvRE8AZMq8rA&usqp=CAU',
         },
         {
+          price: 10,
           id: '2',
           name: 'name',
           photo:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_bMcXquKCV2p3r5Vyc2OWtvvRE8AZMq8rA&usqp=CAU',
         },
         {
+          price: 10,
           id: '3',
           name: 'name',
           photo:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_bMcXquKCV2p3r5Vyc2OWtvvRE8AZMq8rA&usqp=CAU',
         },
         {
+          price: 10,
           id: '4',
           name: 'name',
           photo:
@@ -48,24 +42,28 @@ const initialState: InitialState = {
       name: 'CFK',
       goods: [
         {
+          price: 10,
           id: '12',
           name: 'name1fffffffff fdghg hgjhghj g jhjk',
           photo:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_bMcXquKCV2p3r5Vyc2OWtvvRE8AZMq8rA&usqp=CAU',
         },
         {
+          price: 10,
           id: '22',
           name: 'name2',
           photo:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_bMcXquKCV2p3r5Vyc2OWtvvRE8AZMq8rA&usqp=CAU',
         },
         {
+          price: 10,
           id: '32',
           name: 'name3',
           photo:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_bMcXquKCV2p3r5Vyc2OWtvvRE8AZMq8rA&usqp=CAU',
         },
         {
+          price: 10,
           id: '42',
           name: 'name4',
           photo:
@@ -78,24 +76,28 @@ const initialState: InitialState = {
       name: 'EBY',
       goods: [
         {
+          price: 10,
           id: '13',
           name: 'name2',
           photo:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_bMcXquKCV2p3r5Vyc2OWtvvRE8AZMq8rA&usqp=CAU',
         },
         {
+          price: 10,
           id: '23',
           name: 'name2',
           photo:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_bMcXquKCV2p3r5Vyc2OWtvvRE8AZMq8rA&usqp=CAU',
         },
         {
+          price: 10,
           id: '33',
           name: 'name2',
           photo:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_bMcXquKCV2p3r5Vyc2OWtvvRE8AZMq8rA&usqp=CAU',
         },
         {
+          price: 10,
           id: '43',
           name: 'name2',
           photo:
@@ -108,24 +110,28 @@ const initialState: InitialState = {
       name: 'Rozetka',
       goods: [
         {
+          price: 10,
           id: '14',
           name: 'name3',
           photo:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_bMcXquKCV2p3r5Vyc2OWtvvRE8AZMq8rA&usqp=CAU',
         },
         {
+          price: 10,
           id: '24',
           name: 'name3',
           photo:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_bMcXquKCV2p3r5Vyc2OWtvvRE8AZMq8rA&usqp=CAU',
         },
         {
+          price: 10,
           id: '34',
           name: 'name3',
           photo:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_bMcXquKCV2p3r5Vyc2OWtvvRE8AZMq8rA&usqp=CAU',
         },
         {
+          price: 10,
           id: '44',
           name: 'name3',
           photo:
@@ -138,24 +144,28 @@ const initialState: InitialState = {
       name: 'Prom',
       goods: [
         {
+          price: 10,
           id: '15',
           name: 'name5',
           photo:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_bMcXquKCV2p3r5Vyc2OWtvvRE8AZMq8rA&usqp=CAU',
         },
         {
+          price: 10,
           id: '25',
           name: 'name5',
           photo:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_bMcXquKCV2p3r5Vyc2OWtvvRE8AZMq8rA&usqp=CAU',
         },
         {
+          price: 10,
           id: '35',
           name: 'name5',
           photo:
             'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_bMcXquKCV2p3r5Vyc2OWtvvRE8AZMq8rA&usqp=CAU',
         },
         {
+          price: 10,
           id: '45',
           name: 'name5',
           photo:
@@ -167,6 +177,7 @@ const initialState: InitialState = {
   cart: [
     {
       info: {
+        price: 10,
         name: 'name',
         photo:
           'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_bMcXquKCV2p3r5Vyc2OWtvvRE8AZMq8rA&usqp=CAU',
@@ -177,7 +188,8 @@ const initialState: InitialState = {
     },
     {
       info: {
-        name: 'name',
+        price: 10,
+        name: 'name name name  name name name name name name name name name name',
         photo:
           'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_bMcXquKCV2p3r5Vyc2OWtvvRE8AZMq8rA&usqp=CAU',
 
@@ -187,6 +199,7 @@ const initialState: InitialState = {
     },
     {
       info: {
+        price: 10,
         name: 'name',
         photo:
           'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_bMcXquKCV2p3r5Vyc2OWtvvRE8AZMq8rA&usqp=CAU',
@@ -197,6 +210,7 @@ const initialState: InitialState = {
     },
     {
       info: {
+        price: 10,
         name: 'name',
         photo:
           'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_bMcXquKCV2p3r5Vyc2OWtvvRE8AZMq8rA&usqp=CAU',
@@ -207,6 +221,7 @@ const initialState: InitialState = {
     },
     {
       info: {
+        price: 10,
         name: 'name',
         photo:
           'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSR_bMcXquKCV2p3r5Vyc2OWtvvRE8AZMq8rA&usqp=CAU',
@@ -218,12 +233,33 @@ const initialState: InitialState = {
   ],
   activeShop: '',
 };
+type InitialState = {
+  shops: ShopType[];
+  cart: CartItemType[];
+  activeShop: string;
+};
+type AddProductAction = {
+  payload: GoodsType;
+  type: string;
+};
+
+type ChangeAmountAction = {
+  payload: {
+    id: string;
+    value: number;
+  };
+  type: string;
+};
+type RemoveProductFromCartAction = {
+  payload: string;
+  type: string;
+};
 
 const storeSlice = createSlice({
   name: 'notify',
   initialState,
   reducers: {
-    addProduct(state, action: Action) {
+    addProduct(state, action: AddProductAction) {
       const isProduct = state.cart.find((product) => action.payload.id === product.info.id);
       if (isProduct) {
         const newCart = state.cart.map((product) => {
@@ -236,8 +272,32 @@ const storeSlice = createSlice({
       }
       return { ...state, cart: state.cart.concat({ info: action.payload, amount: 1 }) };
     },
+    changeAmount(state, action: ChangeAmountAction) {
+      if (action.payload.value < 1) {
+        return {
+          ...state,
+          cart: state.cart.filter((product) => product.info.id !== action.payload.id),
+        };
+      }
+
+      return {
+        ...state,
+        cart: state.cart.map((product) => {
+          if (action.payload.id === product.info.id) {
+            return { ...product, amount: action.payload.value };
+          }
+          return product;
+        }),
+      };
+    },
+    removeProductFromCart(state, action: RemoveProductFromCartAction) {
+      return {
+        ...state,
+        cart: state.cart.filter((product) => product.info.id !== action.payload),
+      };
+    },
   },
 });
 
-export const { addProduct } = storeSlice.actions;
+export const { addProduct, changeAmount, removeProductFromCart } = storeSlice.actions;
 export default storeSlice.reducer;

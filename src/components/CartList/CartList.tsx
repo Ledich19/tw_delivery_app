@@ -3,11 +3,13 @@ import CartItem from '../CartItem/CartItem';
 import style from './CartList.module.scss';
 
 const CartList = () => {
-  const { shops } = useAppSelector((state) => state.store);
+  const { cart } = useAppSelector((state) => state.store);
 
   return (
     <div className={style.cartList}>
-      <CartItem />
+      {cart.map((product) => (
+        <CartItem key={product.info.id} product={product} />
+      ))}
     </div>
   );
 };

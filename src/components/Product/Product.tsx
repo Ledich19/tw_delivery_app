@@ -7,7 +7,7 @@ const Product = ({ product }: { product: GoodsType }) => {
   const dispatch = useAppDispatch();
 
   const addToCardHandler = () => {
-    dispatch(addProduct(product.id));
+    dispatch(addProduct(product));
   };
 
   return (

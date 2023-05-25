@@ -2,6 +2,7 @@ export type GoodsType = {
   id: string;
   name: string;
   photo: string;
+  price: number;
 };
 export type ShopType = {
   id: string;

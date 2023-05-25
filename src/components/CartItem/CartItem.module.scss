@@ -1,1 +1,61 @@
+$border: rgb(0, 0, 0);
+$close: red;
 
+.product {
+  position: relative;
+  padding: 10px 10px 20px 10px;
+  font-size: 1rem;
+  border: 1px solid $border;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+.image {
+  width: 50%;
+  border-radius: 5px;
+  border: 1px solid $border;
+  img {
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+  }
+}
+.delete {
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: $close;
+  :hover {
+    transform: scale(1.1);
+  }
+}
+
+.info {
+  width: 50%;
+  max-width: 195px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.textWrap {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.text {
+}
+.name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.price {
+}
+.amount {
+  border-radius: 5px;
+  border: 1px solid $border;
+}

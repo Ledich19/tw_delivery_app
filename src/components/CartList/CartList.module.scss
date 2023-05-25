@@ -2,8 +2,14 @@ $border: rgb(0, 0, 0);
 
 .cartList{
   flex: 1 1 auto;
-border: 1px solid $border;
-border-radius: 5px;
+  border: 1px solid $border;
+  border-radius: 5px;
+  box-sizing:border-box;
+  height: 100%;
+  overflow: scroll;
+  overflow-x:hidden;
   width: 50%;
   padding: 10px;
+  height: 100%;
+  //height: 500px;
 }
