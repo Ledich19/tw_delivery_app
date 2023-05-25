@@ -33,7 +33,7 @@ morgan.token('body', function (req) {
 app.use(morgan('dev'))
 app.use(morgan(' \x1b[35m :body  \x1b[0m'))
 
-app.use('/shop', shopRouter)
+app.use('/shops', shopRouter)
 app.use('/cart', cartRouter)
 
 app.use(middleware.unknownEndpoint)

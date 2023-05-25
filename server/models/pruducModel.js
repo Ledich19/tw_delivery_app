@@ -2,11 +2,13 @@ const mongoose = require('mongoose')
 
 const productSchema = new mongoose.Schema({
     id: String,
-    shopId: String,
+    shopId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Shop",
+    },
     name: String,
     photo: String,
     price: Number,
-  
 })
 
 productSchema.set('toJSON', {

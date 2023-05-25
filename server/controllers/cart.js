@@ -1,9 +1,12 @@
+const Cart = require("../models/cartModel");
+
 const cartRouter = require("express").Router();
 
 cartRouter.post("/", async (request, response) => {
-  const newWinner = { ...request.body };
-  addWinner(newWinner);
-  response.status(201).json(newWinner);
+  const order = request.body;
+  const newOrder = new Cart(order);
+  const createdOrder = await newOrder.save();
+  response.json(createdOrder);
 });
 
 module.exports = cartRouter;
