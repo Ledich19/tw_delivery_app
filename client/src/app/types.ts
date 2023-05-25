@@ -3,6 +3,7 @@ export type ProductsType = {
   name: string;
   photo: string;
   price: number;
+  shopId: string;
 };
 
 export type ShopType = {

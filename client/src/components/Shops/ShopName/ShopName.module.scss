@@ -1,7 +1,8 @@
 $BgColor: #ffffff;
 $BorderColor: #000000;
 $TextColor: #000000;
-
+$disColor: #bebebe;
+.disabledLink,
 .activeLink,
 .navLink {
   border-radius: 5px;
@@ -15,4 +16,9 @@ $TextColor: #000000;
 .activeLink {
   font-weight: bold;
   border: 2px solid $BorderColor;
+}
+.disabledLink {
+  color: $disColor;
+  border: 1px solid $disColor;
+
 }
