@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
 import s from './Form.module.scss';
-
 import useInput from '../../hooks/useInput';
 import { useAppDispatch } from '../../app/hooks';
 import { setFormData } from '../../reducers/formReducer';
+import GoogleMapComponent from '../GoogleMapComponent/GoogleMapComponent';
 
 const Form = () => {
   const dispatch = useAppDispatch();
@@ -46,6 +46,7 @@ const Form = () => {
 
   return (
     <div className={s.form}>
+      <GoogleMapComponent />
       <div className={s.label}>
         Name:
         {name.error && name.isDirty && <span className={s.error}> {name.error} </span>}
