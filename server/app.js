@@ -7,6 +7,7 @@ const cors = require('cors')
 
 const shopRouter = require('./controllers/shop')
 const cartRouter = require('./controllers/cart')
+const productsRouter = require('./controllers/products')
 
 const middleware = require('./utils/middleware')
 const logger = require('./utils/logger')
@@ -35,6 +36,7 @@ app.use(morgan(' \x1b[35m :body  \x1b[0m'))
 
 app.use('/shops', shopRouter)
 app.use('/cart', cartRouter)
+app.use('/products', productsRouter)
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
