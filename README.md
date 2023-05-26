@@ -56,9 +56,9 @@ npm start
   ``` 
   [
     {
-      id: String,
-      name: String,
-      products: [String(product id) ],
+      "id": "String",
+      "name": "String",
+      "products": ["String(product id)" ],
     }
   ]
   ```
@@ -79,9 +79,9 @@ npm start
   + Content:
   ``` 
     {
-      id: String,
-      name: String,
-      products: [String(product id) ],
+      "id": "String",
+      "name": "String",
+      "products": ["String(product id)"],
     }
   ```
 - Error Response:
@@ -103,8 +103,8 @@ npm start
 - Data Params : 
 ``` 
   {
-    name: String,
-    products: [],
+    "name": "String",
+    "products": [],
   }
 ```
 - Success Response:
@@ -112,9 +112,9 @@ npm start
   + Content:
   ``` 
     {
-      id: String,
-      name: String,
-      products: [String(product id) ],
+      "id": "String",
+      "name": "String",
+      "products": ["String(product id)"],
     }
   ```
 
@@ -123,7 +123,7 @@ npm start
   + Content:
   ```
   {
-    error: "content missing",
+    "error": "content missing",
   }
   ```
 </details>
@@ -154,7 +154,7 @@ npm start
 </details>
 
 <details>  
-<summary>shops GET all orders</summary>
+<summary>cart GET all orders</summary>
 
 - URL: /cart
 - Method: GET
@@ -168,19 +168,19 @@ npm start
   ``` 
   [
     {
-      name: String,
-      email: String,
-      phone: String,
-      address: String,
-      order: [
+      "name": "String",
+      "email": "String",
+      "phone": "String",
+      "address": "String",
+      "order": [
         {
-          info: {
-            id: String,
-            name: String,
-            photo: String,
-            price: String,
+          "info": {
+            "id": "String",
+            "name": "String",
+            "photo": "String",
+            "price": "String",
           },
-          amount: Number,
+          "amount": 10,
         }
       ]
     }
@@ -191,7 +191,7 @@ npm start
 </details>
 
 <details> 
-<summary>shops POST create new order</summary>
+<summary>cart POST create new order</summary>
 
 - URL: /cart
 - Method: POST
@@ -200,49 +200,57 @@ npm start
 - Query Params: None
 - Data Params :
 ``` 
-{
-  name: String,
-  email: String,
-  phone: String,
-  address: String,
-  order: [{
-    info: {
-      id: String,
-      name: String,
-      photo: String,
-      price: String,
-    },
-    amount: Number,
-  }]
-}
+[
+    {
+      "name": "String",
+      "email": "String",
+      "phone": "String",
+      "address": "String",
+      "order": [
+        {
+          "info": {
+            "id": "String",
+            "name": "String",
+            "photo": "String",
+            "price": "String",
+          },
+          "amount": 10,
+        }
+      ]
+    }
+  ]
 ```
 - Success Response:
   + Code: 201 CREATED
   + Content:
   ``` 
-  {
-    id: String
-    name: String,
-    email: String,
-    phone: String,
-    address: String,
-    order: [{
-      info: {
-        id: String,
-        name: String,
-        photo: String,
-        price: String,
-      },
-      amount: Number,
-    }]
-  }
+  [
+    {
+      "name": "String",
+      "email": "String",
+      "phone": "String",
+      "address": "String",
+      "order": [
+        {
+          "info": {
+            "id": "String",
+            "name": "String",
+            "photo": "String",
+            "price": "String",
+          },
+          "amount": 10,
+        }
+      ]
+    }
+  ]
   ```
 
 - Error Response: None
 - Notes: None
 </details>
 
-<summary>shops DELETE order</summary>
+<details> 
+<summary>cart DELETE order</summary>
 
 - URL: /cart/:id
 - Method: DELETE
