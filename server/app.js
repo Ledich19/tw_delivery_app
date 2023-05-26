@@ -2,7 +2,7 @@ const config = require('./utils/config')
 const express = require('express')
 require('express-async-errors')
 const app = express()
-
+const path = require('path');
 const cors = require('cors')
 
 const shopRouter = require('./controllers/shop')
@@ -25,7 +25,8 @@ mongoose.connect(config.MONGODB_URI)
   })
 app.use(cors())
 
-app.use(express.static('build'))
+
+
 app.use(express.json())
 
 morgan.token('body', function (req) {
@@ -35,8 +36,12 @@ app.use(morgan('dev'))
 app.use(morgan(' \x1b[35m :body  \x1b[0m'))
 
 app.use('/shops', shopRouter)
-app.use('/cart', cartRouter)
+app.use('/orders', cartRouter)
 app.use('/products', productsRouter)
+app.use(express.static('build'))
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+});
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)

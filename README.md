@@ -154,7 +154,7 @@ npm start
 </details>
 
 <details>  
-<summary>cart GET all orders</summary>
+<summary>orders GET all orders</summary>
 
 - URL: /cart
 - Method: GET
@@ -191,7 +191,7 @@ npm start
 </details>
 
 <details> 
-<summary>cart POST create new order</summary>
+<summary>orders POST create new order</summary>
 
 - URL: /cart
 - Method: POST
@@ -250,7 +250,7 @@ npm start
 </details>
 
 <details> 
-<summary>cart DELETE order</summary>
+<summary>orders DELETE order</summary>
 
 - URL: /cart/:id
 - Method: DELETE

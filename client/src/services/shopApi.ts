@@ -10,7 +10,7 @@ export const shopApi = createApi({
     }),
     postOrder: build.mutation<OrderType, Partial<OrderType>>({
       query: (data) => ({
-        url: `/cart`,
+        url: `/orders`,
         method: 'POST',
         body: data,
       }),
