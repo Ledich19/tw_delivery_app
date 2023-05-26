@@ -1,8 +1,8 @@
 const Product = require("../models/pruducModel");
 const Shop = require("../models/shopModel");
-const shopRouter = require("express").Router();
+const productRouter = require("express").Router();
 
-shopRouter.get("/", async (request, response) => {
+productRouter.get("/", async (request, response) => {
   const page = request.query.page || 1;
   const limit = 10;
   const shops = await Product.find({})
@@ -12,7 +12,7 @@ shopRouter.get("/", async (request, response) => {
   response.json(shops);
 });
 
-shopRouter.get("/:id", async (request, response) => {
+productRouter.get("/:id", async (request, response) => {
   const shop = await Product.findById(request.params.id);
   if (shop) {
     response.json(shop);
@@ -21,7 +21,7 @@ shopRouter.get("/:id", async (request, response) => {
   }
 });
 
-shopRouter.post("/", async (request, response) => {
+productRouter.post("/", async (request, response) => {
   const body = request.body;
   if (body.shopId === undefined) {
     return response.status(400).json({
@@ -41,10 +41,10 @@ shopRouter.post("/", async (request, response) => {
   response.status(201).json(createdProduct);
 });
 
-shopRouter.delete("/:id", async (request, response) => {
+productRouter.delete("/:id", async (request, response) => {
   const id = request.params.id;
   await Product.findByIdAndRemove(id);
   response.status(204).end();
 });
 
-module.exports = shopRouter;
+module.exports = productRouter;

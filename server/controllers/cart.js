@@ -2,7 +2,7 @@ const Cart = require("../models/cartModel");
 
 const cartRouter = require("express").Router();
 
-shopRouter.get("/", async (request, response) => {
+cartRouter.get("/", async (request, response) => {
   const orders = await Cart.find({});
   response.json(orders);
 });
@@ -14,7 +14,7 @@ cartRouter.post("/", async (request, response) => {
   response.json(createdOrder);
 });
 
-shopRouter.delete("/:id", async (request, response) => {
+cartRouter.delete("/:id", async (request, response) => {
   const id = request.params.id;
   await Cart.findByIdAndRemove(id);
   response.status(204).end();
