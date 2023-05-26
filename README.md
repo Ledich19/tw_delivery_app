@@ -4,11 +4,11 @@
 
 ## client
   for launch and work google map you need create file __.env__ with environment variable
-  ``VITE_API_KEY=<google api key>``
+  ``VITE_API_KEY = <google api key>``
 
 ## server
   for launch you need create file __.env__ with environment variable
-  ``MONGODB_URI= your mongo db url``
+  ``MONGODB_URI = <your mongo db url>``
 
 1. Open the folder containing your project.
 2. Navigate to the `server` folder using the command `cd server` in your command prompt or terminal. This assumes that your project has a `server` folder that contains the server-side code.

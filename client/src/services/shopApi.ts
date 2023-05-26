@@ -3,7 +3,7 @@ import { OrderType, ShopType } from '../app/types';
 
 export const shopApi = createApi({
   reducerPath: 'shopApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:3000' }),
+  baseQuery: fetchBaseQuery({ baseUrl: './' }),
   endpoints: (build) => ({
     getShops: build.query<ShopType[], string>({
       query: () => '/shops',
