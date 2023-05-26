@@ -7,14 +7,40 @@ shopRouter.get("/", async (request, response) => {
   const limit = 9;
   const shops = await Shop.find({})
     .skip((page - 1) * limit)
-    .limit(10).populate('products');
+    .limit(10)
+    .populate("products");
 
   response.json(shops);
 });
-shopRouter.get("/:id", async (request, response) => {});
+
+shopRouter.get("/:id", async (request, response) => {
+  const person = await Shop.findById(request.params.id)
+  if (person) {
+    response.json(person)
+  } else {
+    response.status(404).end()
+  }
+});
 
 shopRouter.post("/", async (request, response) => {
+  const body = request.body;
+  if (body.name === undefined) {
+    return response.status(400).json({
+      error: "content missing",
+    });
+  }
+  const shop = new Shop({
+    name: shop.name,
+    products: [],
+  });
+  const savedPerson = await shop.save();
+  response.status(201).json(savedPerson);
+});
 
+shopRouter.delete("/:id", async (request, response) => {
+  const id = request.params.id;
+  await Shop.findByIdAndRemove(id);
+  response.status(204).end();
 });
 
 module.exports = shopRouter;
