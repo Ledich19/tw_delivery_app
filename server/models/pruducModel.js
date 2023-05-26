@@ -5,6 +5,7 @@ const productSchema = new mongoose.Schema({
     shopId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Shop",
+      required: true,
     },
     name: String,
     photo: String,
