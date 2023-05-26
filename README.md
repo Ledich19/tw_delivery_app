@@ -41,6 +41,158 @@ npm start
 ```
 
 ## API
+<details>  
+<summary>shops GET all</summary>
+
+- URL: /shops
+- Method: GET
+- Headers: 'Content-Type': 'application/json'
+- URL Params: 
+- Query Params: None
+- Data Params : None
+- Success Response:
+  + Code: 200 OK
+  + Content:
+  ``` 
+  [
+    {
+      id: String,
+      name: String,
+      products: [String(product id) ],
+    }
+  ]
+  ```
+</details>
+
+<details>  
+<summary>shops GET shop by id</summary>
+
+- URL: /shops/:id
+- Method: GET
+- Headers: 'Content-Type': 'application/json'
+- URL Params: 
+  + Required: id=[integer]
+- Query Params: None
+- Data Params : None
+- Success Response:
+  + Code: 200 OK
+  + Content:
+  ``` 
+    {
+      id: String,
+      name: String,
+      products: [String(product id) ],
+    }
+  ```
+- Error Response:
+  + Code: 404 NOT FOUND
+  + Content:
+  ```
+  {}
+  ```
+</details>
+
+<details> 
+<summary>shops POST create new shop</summary>
+
+- URL: /shops
+- Method: POST
+- Headers: 'Content-Type': 'application/json'
+- URL Params: None
+- Query Params: None
+- Data Params : 
+``` 
+  {
+    name: String,
+    products: [],
+  }
+```
+- Success Response:
+  + Code: 201 OK
+  + Content:
+  ``` 
+    {
+      id: String,
+      name: String,
+      products: [String(product id) ],
+    }
+  ```
+
+- Error Response:
+  + Code: 400 
+  + Content:
+  ```
+  {
+    error: "content missing",
+  }
+  ```
+</details>
+
+<details> 
+<summary>shops DELETE shop</summary>
+
+- URL: /shops/:id
+- Method: DELETE
+- Headers: 'Content-Type': 'application/json'
+- URL Params: None
+  + Required: id=[integer]
+- Query Params: None
+- Data Params : none
+- Success Response:
+  + Code: 204 OK
+  + Content:
+  ``` 
+    {}
+  ```
+
+- Error Response:
+  + Code: 404 NOT FOUND 
+  + Content:
+  ```
+  {}
+  ```
+</details>
+
+<details>  
+<summary>shops GET all</summary>
+
+- URL: /cart
+- Method: GET
+- Headers: 'Content-Type': 'application/json'
+- URL Params: 
+- Query Params: None
+- Data Params : None
+- Success Response:
+  + Code: 200 OK
+  + Content:
+  ``` 
+  [
+    {
+      name: String,
+      email: String,
+      phone: String,
+      address: String,
+      order: [
+        {
+          info: {
+            id: String,
+            name: String,
+            photo: String,
+            price: String,
+          },
+          amount: Number,
+        }
+      ]
+    }
+  ]
+  ```
+- Error Response: None
+- Notes: None
+</details>
+
+<details> 
+<summary>shops POST create new shop</summary>
+
 - URL: /cart
 - Method: POST
 - Headers: 'Content-Type': 'application/json'
@@ -85,19 +237,31 @@ npm start
     }]
   }
   ```
-***
-- URL: /shops
-- Method: GET
+
+- Error Response: None
+- Notes: None
+</details>
+
+<summary>shops DELETE shop</summary>
+
+- URL: /cart/:id
+- Method: DELETE
 - Headers: 'Content-Type': 'application/json'
 - URL Params: None
+  + Required: id=[integer]
 - Query Params: None
-- Data Params :
-``` 
-[
-  {
-    id: String,
-    name: String,
-    products: [String(product id) ],
-  }
-]
-```
+- Data Params : none
+- Success Response:
+  + Code: 204 OK
+  + Content:
+  ``` 
+    {}
+  ```
+- Error Response:
+  + Code: 404 NOT FOUND 
+  + Content:
+  ```
+  {}
+  ```
+</details>
+
