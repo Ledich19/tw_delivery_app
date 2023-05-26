@@ -3,8 +3,8 @@ const Cart = require("../models/cartModel");
 const cartRouter = require("express").Router();
 
 shopRouter.get("/", async (request, response) => {
-  const shops = await Cart.find({});
-  response.json(shops);
+  const orders = await Cart.find({});
+  response.json(orders);
 });
 
 cartRouter.post("/", async (request, response) => {

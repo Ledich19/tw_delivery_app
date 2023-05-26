@@ -14,9 +14,9 @@ shopRouter.get("/", async (request, response) => {
 });
 
 shopRouter.get("/:id", async (request, response) => {
-  const person = await Shop.findById(request.params.id)
-  if (person) {
-    response.json(person)
+  const shop = await Shop.findById(request.params.id)
+  if (shop) {
+    response.json(shop)
   } else {
     response.status(404).end()
   }
@@ -33,8 +33,8 @@ shopRouter.post("/", async (request, response) => {
     name: shop.name,
     products: [],
   });
-  const savedPerson = await shop.save();
-  response.status(201).json(savedPerson);
+  const savedShop = await shop.save();
+  response.status(201).json(savedShop);
 });
 
 shopRouter.delete("/:id", async (request, response) => {

@@ -42,7 +42,7 @@ npm start
 
 ## API
 <details>  
-<summary>shops GET all</summary>
+<summary>shops GET all shops</summary>
 
 - URL: /shops
 - Method: GET
@@ -154,7 +154,7 @@ npm start
 </details>
 
 <details>  
-<summary>shops GET all</summary>
+<summary>shops GET all orders</summary>
 
 - URL: /cart
 - Method: GET
@@ -191,7 +191,7 @@ npm start
 </details>
 
 <details> 
-<summary>shops POST create new shop</summary>
+<summary>shops POST create new order</summary>
 
 - URL: /cart
 - Method: POST
@@ -242,7 +242,7 @@ npm start
 - Notes: None
 </details>
 
-<summary>shops DELETE shop</summary>
+<summary>shops DELETE order</summary>
 
 - URL: /cart/:id
 - Method: DELETE
