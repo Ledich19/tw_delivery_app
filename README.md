@@ -1,6 +1,6 @@
 # delivery app
 
-## deploy [delivery app](https://delivery-app-ip7s.onrender.com/cart)
+## deploy [delivery app](https://delivery-app-ip7s.onrender.com)
 
 ## client
   for launch and work google map you need create file __.env__ with environment variable
