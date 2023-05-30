@@ -27,7 +27,7 @@ export type OrderType = {
   email: string;
   phone: string;
   address: string;
-  order: CartItemType[];
+  order: CartItemType[] | null;
 };
 
 export type ValidationType = {

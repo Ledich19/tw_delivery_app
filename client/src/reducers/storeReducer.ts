@@ -3,7 +3,6 @@ import { CartItemType, ProductsType } from '../app/types';
 
 type InitialState = {
   cart: CartItemType[];
-  activeShop: string;
   isSuccess: boolean;
   isError: null | string;
 };
@@ -26,7 +25,6 @@ type RemoveProductFromCartAction = {
 
 const initialState: InitialState = {
   cart: [],
-  activeShop: '',
   isSuccess: false,
   isError: null,
 };

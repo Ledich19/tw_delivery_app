@@ -1,6 +1,7 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
 import storeReducer from '../reducers/storeReducer';
 import formReducer from '../reducers/formReducer';
+import { listenerMiddleware, reHydrateStore } from './localStorage';
 import { shopApi } from '../services/shopApi';
 
 export const store = configureStore({
@@ -9,7 +10,17 @@ export const store = configureStore({
     form: formReducer,
     [shopApi.reducerPath]: shopApi.reducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(shopApi.middleware),
+
+  preloadedState: {
+    store: {
+      cart: reHydrateStore() || [],
+      isSuccess: false,
+      isError: null,
+    },
+  },
+
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(shopApi.middleware, listenerMiddleware.middleware),
 });
 
 export type AppDispatch = typeof store.dispatch;
