@@ -11,7 +11,7 @@ import { RootState } from './store';
 export const listenerMiddleware = createListenerMiddleware();
 listenerMiddleware.startListening({
   matcher: isAnyOf(addProduct, removeProductFromCart, changeAmount, cleanCart),
-  effect: (action, listenerApi) =>
+  effect: (_, listenerApi) =>
     localStorage.setItem(
       'delivery-app/cart',
       JSON.stringify((listenerApi.getState() as RootState).store.cart)

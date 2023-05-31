@@ -3,7 +3,7 @@ import s from './Form.module.scss';
 import useInput from '../../hooks/useInput';
 import { useAppDispatch } from '../../app/hooks';
 import { setFormData } from '../../reducers/formReducer';
-import GoogleMapComponent from '../GoogleMapComponent/GoogleMapComponent';
+import GoogleMapComponent from '../GoogleMapComponent/MapComponent';
 
 const Form = () => {
   const dispatch = useAppDispatch();
