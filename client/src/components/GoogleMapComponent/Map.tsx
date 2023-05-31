@@ -4,7 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import { useAppSelector } from '../../app/hooks';
 import LocationMarker from './LocationMarker/LocationMarker';
 import ResetCenterView from './ResetCenterView/ResetCenterView';
-import LeafletRoutingMachine from './LeafletRoutingMachine';
+import LeafletRoutingMachine from './LeafletRoutingMachine/LeafletRoutingMachine';
 
 type Props = {
   shopLocation: LatLngTuple | null;

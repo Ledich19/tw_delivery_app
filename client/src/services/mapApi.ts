@@ -16,18 +16,6 @@ export const mapApi = createApi({
         },
       }),
     }),
-    getPlacesRevers: build.query<Place, { lat: number; lon: number }>({
-      query: ({ lat, lon }) => ({
-        url: 'reverse',
-        params: {
-          format: 'json',
-          lat,
-          lon,
-          zoom: 18,
-          addressdetails: 1,
-        },
-      }),
-    }),
   }),
 });
 
@@ -49,4 +37,4 @@ export const fetchPlace = async ({ lat, lon }: { lat: number; lon: number }) => 
   return data as Place;
 };
 
-export const { useGetPlacesQuery, useGetPlacesReversQuery } = mapApi;
+export const { useGetPlacesQuery } = mapApi;

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { FormType, Place } from '../app/types';
+import { Place } from '../app/types';
 
 type InitialState = {
   selectPosition: Place | null;
