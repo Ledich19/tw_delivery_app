@@ -6,7 +6,12 @@ import LocationMarker from './LocationMarker/LocationMarker';
 import ResetCenterView from './ResetCenterView/ResetCenterView';
 // import s from './Map.module.scss';
 
-const Map = () => {
+type Props = {
+  shopLocation: [number, number] | null;
+  shopName: string | undefined;
+};
+
+const Map = ({ shopLocation, shopName }: Props) => {
   const { selectPosition } = useAppSelector((store) => store.maps);
   const location = selectPosition
     ? ([parseFloat(selectPosition.lat), parseFloat(selectPosition.lon)] as LatLngExpression)
@@ -20,11 +25,15 @@ const Map = () => {
       />
       {selectPosition && (
         <Marker position={location}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
+          <Popup>{selectPosition && selectPosition.display_name}</Popup>
         </Marker>
       )}
+      {shopLocation && (
+        <Marker position={shopLocation}>
+          <Popup>{shopName}</Popup>
+        </Marker>
+      )}
+
       <ResetCenterView />
       <LocationMarker />
     </MapContainer>
