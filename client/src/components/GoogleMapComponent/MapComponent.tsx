@@ -11,7 +11,7 @@ const GoogleMapComponent = () => {
       <div className={s.map}>
         <Map />
       </div>
-      <Search />
+      {/* <Search /> */}
     </div>
   );
 };

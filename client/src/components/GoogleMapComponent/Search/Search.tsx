@@ -1,26 +1,46 @@
 import { useState } from 'react';
 import { useGetPlacesQuery } from '../../../services/mapApi';
-import { useAppDispatch } from '../../../app/hooks';
-import { setSelectPosition } from '../../../reducers/mapsReducer';
+import { useAppDispatch, useAppSelector } from '../../../app/hooks';
+import { setSearchText, setSelectPosition } from '../../../reducers/mapsReducer';
 import s from './Search.module.scss';
+import { Place } from '../../../app/types';
+import { setAddress } from '../../../reducers/formReducer';
 
 const Search = () => {
-  const [searchText, setSearchText] = useState('');
+  const { searchText } = useAppSelector((store) => store.maps);
   const { data = [], isLoading } = useGetPlacesQuery(searchText);
+
   const dispatch = useAppDispatch();
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchText(e.target.value);
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    dispatch(setSearchText(e.target.value));
+  };
+  const handleClick = (place: Place) => {
+    dispatch(setSelectPosition(place));
+    dispatch(setAddress(place.display_name));
+    dispatch(setSearchText(place.display_name));
   };
 
   return (
-    <>
-      <input className={s.input} type="text" onChange={handleChange} />
-      {data.map((place) => (
-        <button type="button" onClick={() => dispatch(setSelectPosition(place))} key={place.osm_id}>
-          {place.display_name}
-        </button>
-      ))}
-    </>
+    <div className={s.search}>
+      <div className={s.label}>Address:</div>
+      <textarea
+        rows={3}
+        value={searchText}
+        className={s.textarea}
+        onChange={handleChange}
+        placeholder="Search place"
+      />
+      <div className={s.list}>
+        {data.map(
+          (place) =>
+            place.display_name === searchText || (
+              <button type="button" onClick={() => handleClick(place)} key={place.osm_id}>
+                {place.display_name}
+              </button>
+            )
+        )}
+      </div>
+    </div>
   );
 };
 

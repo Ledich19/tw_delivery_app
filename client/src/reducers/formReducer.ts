@@ -7,9 +7,17 @@ type InitialState = {
 };
 type SetFormDataAction = {
   payload: {
-    formData: FormType;
+    formData: {
+      name: string;
+      email: string;
+      phone: string;
+    };
     isValid: boolean;
   };
+  type: string;
+};
+type SetAddressDataAction = {
+  payload: string;
   type: string;
 };
 
@@ -30,12 +38,18 @@ const formSlice = createSlice({
     setFormData(state, action: SetFormDataAction) {
       return {
         ...state,
-        formData: action.payload.formData,
+        formData: { ...action.payload.formData, address: state.formData.address },
         isValid: action.payload.isValid,
+      };
+    },
+    setAddress(state, action: SetAddressDataAction) {
+      return {
+        ...state,
+        formData: { ...state.formData, address: action.payload },
       };
     },
   },
 });
 
-export const { setFormData } = formSlice.actions;
+export const { setFormData, setAddress } = formSlice.actions;
 export default formSlice.reducer;

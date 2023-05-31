@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import s from './Form.module.scss';
 import useInput from '../../hooks/useInput';
-import { useAppDispatch } from '../../app/hooks';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { setFormData } from '../../reducers/formReducer';
 import GoogleMapComponent from '../GoogleMapComponent/MapComponent';
+import Search from '../GoogleMapComponent/Search/Search';
 
 const Form = () => {
   const dispatch = useAppDispatch();
@@ -28,21 +29,16 @@ const Form = () => {
       text: `номер в формате +999999999999`,
     },
   });
-  const address = useInput('', {
-    isEmpty: true,
-    minLength: 5,
-  });
 
   useEffect(() => {
     const formData = {
       name: name.value || '',
       email: email.value || '',
       phone: phone.value || '',
-      address: address.value || '',
     };
-    const isValid = !email.isValid || !phone.isValid || !address.isValid;
+    const isValid = !email.isValid || !phone.isValid;
     dispatch(setFormData({ formData, isValid }));
-  }, [name, email, phone, address, dispatch]);
+  }, [name, email, phone, dispatch]);
 
   return (
     <div className={s.form}>
@@ -85,19 +81,7 @@ const Form = () => {
         placeholder="phone"
       />
 
-      <div className={s.label}>
-        Address:
-        {address.error && address.isDirty && <span className={s.error}> {address.error} </span>}
-      </div>
-      <input
-        type="text"
-        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-        className={s.textBox}
-        value={address.value}
-        onChange={(e) => address.onChange(e)}
-        onBlur={() => address.onBlur()}
-        placeholder="address"
-      />
+      <Search />
     </div>
   );
 };

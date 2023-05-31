@@ -3,13 +3,19 @@ import { FormType, Place } from '../app/types';
 
 type InitialState = {
   selectPosition: Place | null;
+  searchText: string;
 };
 type SetSelectPosition = {
   payload: Place;
   type: string;
 };
+type SetSearchText = {
+  payload: string;
+  type: string;
+};
 
 const initialState: InitialState = {
+  searchText: '',
   selectPosition: null,
 };
 
@@ -23,8 +29,14 @@ const mapsSlice = createSlice({
         selectPosition: action.payload,
       };
     },
+    setSearchText(state, action: SetSearchText) {
+      return {
+        ...state,
+        searchText: action.payload,
+      };
+    },
   },
 });
 
-export const { setSelectPosition } = mapsSlice.actions;
+export const { setSelectPosition, setSearchText } = mapsSlice.actions;
 export default mapsSlice.reducer;

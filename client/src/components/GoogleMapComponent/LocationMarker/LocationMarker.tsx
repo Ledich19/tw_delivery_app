@@ -2,7 +2,7 @@ import { useMapEvents } from 'react-leaflet';
 import { useDispatch } from 'react-redux';
 
 import 'leaflet/dist/leaflet.css';
-import { setSelectPosition } from '../../../reducers/mapsReducer';
+import { setSearchText, setSelectPosition } from '../../../reducers/mapsReducer';
 import { fetchPlace } from '../../../services/mapApi';
 
 const LocationMarker = () => {
@@ -11,6 +11,7 @@ const LocationMarker = () => {
     async click(e) {
       const place = await fetchPlace({ lat: e.latlng.lat, lon: e.latlng.lng });
       dispatch(setSelectPosition(place));
+      dispatch(setSearchText(place.display_name));
     },
   });
 

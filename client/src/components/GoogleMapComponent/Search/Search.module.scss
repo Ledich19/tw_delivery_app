@@ -1,5 +1,14 @@
-.container{
+.search{
   position: relative;
 }
-
+.list{
+  z-index: 100;
+  position: absolute;
+}
+.textarea{
+  border-radius: 5px;
+  resize: none;
+  width: 100%;
+  display: block;
+}
 

@@ -5,11 +5,16 @@ import { useAppSelector } from '../../../app/hooks';
 const ResetCenterView = () => {
   const { selectPosition } = useAppSelector((store) => store.maps);
   const map = useMap();
+
   useEffect(() => {
-    if (selectPosition) {
-      map.setView(L.latLng(selectPosition.lat, selectPosition.lon)),
+    if (selectPosition && map) {
+      map.setView(
+        { lat: parseFloat(selectPosition.lat), lng: parseFloat(selectPosition.lon) },
         map.getZoom(),
-        { animate: true };
+        {
+          animate: true,
+        }
+      );
     }
   }, [selectPosition, map]);
 

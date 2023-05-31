@@ -25,7 +25,9 @@ body {
   font-size: 14px;
   background-image: url(./assets/bg/brett-ritchie-1vKTnwLMdqs-unsplash.jpg);
 }
-
+*{
+  box-sizing: border-box;
+}
 
 @media (prefers-color-scheme: light) {
   :root {
