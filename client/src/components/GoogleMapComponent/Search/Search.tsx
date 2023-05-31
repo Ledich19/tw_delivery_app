@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useGetPlacesQuery } from '../../../services/mapApi';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { setSearchText, setSelectPosition } from '../../../reducers/mapsReducer';
@@ -15,6 +14,13 @@ const Search = () => {
     dispatch(setSearchText(e.target.value));
   };
   const handleClick = (place: Place) => {
+    console.log({
+      display_name: place.display_name,
+      osm_id: place.osm_id,
+      lat: place.lat,
+      lon: place.lon,
+    });
+
     dispatch(setSelectPosition(place));
     dispatch(setAddress(place.display_name));
     dispatch(setSearchText(place.display_name));

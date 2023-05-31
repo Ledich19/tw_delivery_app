@@ -9,16 +9,15 @@ shopRouter.get("/", async (request, response) => {
     .skip((page - 1) * limit)
     .limit(10)
     .populate("products");
-
   response.json(shops);
 });
 
 shopRouter.get("/:id", async (request, response) => {
-  const shop = await Shop.findById(request.params.id)
+  const shop = await Shop.findById(request.params.id);
   if (shop) {
-    response.json(shop)
+    response.json(shop);
   } else {
-    response.status(404).end()
+    response.status(404).end();
   }
 });
 

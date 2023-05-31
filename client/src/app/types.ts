@@ -9,6 +9,12 @@ export type ProductsType = {
 export type ShopType = {
   id: string;
   name: string;
+  address: {
+    display_name: string;
+    osm_id: number;
+    lat: string;
+    lon: string;
+  };
   products: ProductsType[];
 };
 export type CartItemType = {

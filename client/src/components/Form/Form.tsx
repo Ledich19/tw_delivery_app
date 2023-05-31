@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import s from './Form.module.scss';
 import useInput from '../../hooks/useInput';
-import { useAppDispatch, useAppSelector } from '../../app/hooks';
+import { useAppDispatch } from '../../app/hooks';
 import { setFormData } from '../../reducers/formReducer';
 import GoogleMapComponent from '../GoogleMapComponent/MapComponent';
 import Search from '../GoogleMapComponent/Search/Search';

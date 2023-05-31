@@ -1,4 +1,7 @@
 GET http://localhost:3000/shops
 ###
 
+GET http://localhost:3000/products
+###
+
 POST http://localhost:3000/shops
